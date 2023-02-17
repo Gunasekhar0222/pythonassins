@@ -1,0 +1,18 @@
+def optimalPoint(magic, dist):
+    n = len(magic)
+    start = 0
+    total_magic = 0
+    magic_needed = 0
+    for i in range(n):
+        total_magic += magic[i] - dist[i]
+        magic_needed += magic[i] - dist[i]
+        if magic_needed < 0:
+            start = i + 1
+            magic_needed = 0
+    if total_magic < 0:
+        return -1
+    else:
+        return start
+We start at the first source (index 0) and initialize start, total_magic, and magic_needed to zero. We then loop through all the sources, adding the magic at each source and subtracting the
+
+
