@@ -1,0 +1,15 @@
+def longestVowelSubsequence(s):
+    last_vowel = ''
+    longest_subsequence_length = 0
+    current_subsequence_length = 0
+    for c in s:
+        if c in 'aeiou':
+            if c >= last_vowel:
+                current_subsequence_length += 1
+                last_vowel = c
+            else:
+                current_subsequence_length = 1
+                last_vowel = c
+        if current_subsequence_length == 5:
+            longest_subsequence_length = max(longest_subsequence_length, current_subsequence_length)
+    return longest_subsequence_length
